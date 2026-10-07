@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShekBot AI Minecraft Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+    .card-header {
+      background-color: #1e293b;
+      border-bottom: 1px solid #334155;
+      font-weight: 600;
+    }
+    .status-badge {
+      font-size: 0.9rem;
+      padding: 0.4em 0.8em;
+      border-radius: 20px;
+    }
+    .log-window {
+      background-color: #090d16;
+      color: #38bdf8;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      height: 450px;
+      overflow-y: auto;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #1e293b;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .log-line { margin-bottom: 4px; word-break: break-word; }
+    .log-time { color: #64748b; font-size: 0.78rem; margin-right: 6px; }
+    .log-info { color: #38bdf8; }
+    .log-chat { color: #4ade80; }
+    .log-ai { color: #c084fc; }
+    .log-warn { color: #fbbf24; }
+    .log-error { color: #f87171; }
+    .btn-custom { font-weight: 600; border-radius: 8px; }
+  </style>
+</head>
+<body class="py-4">
+  <div class="container">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary">
+      <div>
+        <h2 class="fw-bold mb-0 text-light">🌾 ShekBot AI Manager</h2>
+        <small class="text-secondary">Village Farmer & Guard | Powered by Qwen 1.5B</small>
+      </div>
+      <div>
+        <span id="botStatusBadge" class="status-badge bg-secondary text-white">Checking status...</span>
+      </div>
+    </div>
+
+    <!-- Info Metrics -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <div class="card text-center p-3">
+          <small class="text-secondary">Bot Name / Owner</small>
+          <h5 id="botName" class="fw-bold mb-0 text-info">ShekBot (Owner: Shek)</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center p-3">
+          <small class="text-secondary">Server Host</small>
+          <h6 id="serverAddr" class="fw-bold mb-0 text-warning text-truncate">catsmpv5byshek.aternos.me:45259</h6>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center p-3">
+          <small class="text-secondary">Mood & Safe Mode</small>
+          <h5 id="botMood" class="fw-bold mb-0 text-success">HAPPY</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center p-3">
+          <small class="text-secondary">Current Schedule Task</small>
+          <h6 id="currentTask" class="fw-bold mb-0 text-purple text-truncate">idle</h6>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="row g-3">
+      <!-- Left Column: Controls & Settings -->
+      <div class="col-lg-5">
+        
+        <!-- Controls Card -->
+        <div class="card mb-3">
+          <div class="card-header text-light">⚡ Power & Mode Controls</div>
+          <div class="card-body">
+            <div class="d-flex gap-2 mb-2">
+              <button id="btnStart" class="btn btn-success btn-custom flex-grow-1" onclick="startBot()">▶ Start Bot</button>
+              <button id="btnStop" class="btn btn-danger btn-custom flex-grow-1" onclick="stopBot()">⏹ Stop Bot</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Server & Owner Settings -->
+        <div class="card mb-3">
+          <div class="card-header text-light">⚙️ Bot & Server Config</div>
+          <div class="card-body">
+            <form onsubmit="saveSettings(event)">
+              <div class="row g-2 mb-2">
+                <div class="col-6">
+                  <label class="form-label text-secondary small mb-1">Bot Name</label>
+                  <input type="text" id="cfgUsername" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+                </div>
+                <div class="col-6">
+                  <label class="form-label text-secondary small mb-1">Owner Username</label>
+                  <input type="text" id="cfgOwner" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+                </div>
+              </div>
+              <div class="row g-2 mb-3">
+                <div class="col-8">
+                  <label class="form-label text-secondary small mb-1">Server Host</label>
+                  <input type="text" id="cfgHost" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+                </div>
+                <div class="col-4">
+                  <label class="form-label text-secondary small mb-1">Port</label>
+                  <input type="number" id="cfgPort" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary w-100 btn-custom">💾 Save & Reconnect</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Shortcuts & Chat -->
+        <div class="card mb-3">
+          <div class="card-header text-light">🚀 Quick Commands</div>
+          <div class="card-body">
+            <div class="row g-2 mb-3">
+              <div class="col-6"><button class="btn btn-outline-info btn-sm w-100" onclick="sendShortcut('come')">📍 Come Here</button></div>
+              <div class="col-6"><button class="btn btn-outline-danger btn-sm w-100" onclick="sendShortcut('stop')">🛑 Stop / Stay</button></div>
+              <div class="col-6"><button class="btn btn-outline-warning btn-sm w-100" onclick="sendShortcut('sleep')">😴 Sleep Bed</button></div>
+              <div class="col-6"><button class="btn btn-outline-secondary btn-sm w-100 text-light" onclick="sendShortcut('status')">📊 Status</button></div>
+            </div>
+            <form onsubmit="sendChat(event)">
+              <div class="input-group">
+                <input type="text" id="chatInput" class="form-control bg-dark text-light border-secondary" placeholder="Chat naturally or order bot..." required>
+                <button class="btn btn-primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Live Terminal Log Stream -->
+      <div class="col-lg-7">
+        <div class="card h-100">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span>📜 Live Terminal Logs & Daily Report</span>
+            <div>
+              <button class="btn btn-sm btn-outline-info text-light me-1" onclick="fetchReport()">Daily Report</button>
+              <button class="btn btn-sm btn-outline-secondary text-light" onclick="clearLogs()">Clear</button>
+            </div>
+          </div>
+          <div class="card-body p-2">
+            <div id="logWindow" class="log-window">
+              <div class="log-line log-info">[System] Connecting to ShekBot live event log stream...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const logWindow = document.getElementById('logWindow');
+    let ws;
+
+    function appendLog(message, type = 'info') {
+      const now = new Date().toLocaleTimeString();
+      const div = document.createElement('div');
+      div.className = `log-line log-${type}`;
+      div.innerHTML = `<span class="log-time">[${now}]</span> ${escapeHtml(message)}`;
+      logWindow.appendChild(div);
+      logWindow.scrollTop = logWindow.scrollHeight;
+    }
+
+    function clearLogs() { logWindow.innerHTML = ''; }
+    function escapeHtml(str) { return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    function connectWS() {
+      const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      ws = new WebSocket(`${protocol}//${location.host}`);
+      ws.onopen = () => { appendLog('Connected to ShekBot Web Console.', 'info'); fetchStatus(); };
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.type === 'log') appendLog(data.text, data.logType || 'info');
+          else if (data.type === 'status') updateStatusUI(data.status);
+        } catch (e) { appendLog(event.data, 'info'); }
+      };
+      ws.onclose = () => { setTimeout(connectWS, 3000); };
+    }
+
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        updateStatusUI(data);
+      } catch (err) {}
+    }
+
+    function updateStatusUI(status) {
+      if (!status) return;
+      const badge = document.getElementById('botStatusBadge');
+      if (status.connected) { badge.className = 'status-badge bg-success text-white'; badge.innerText = 'ONLINE'; }
+      else if (status.starting) { badge.className = 'status-badge bg-warning text-dark'; badge.innerText = 'CONNECTING...'; }
+      else { badge.className = 'status-badge bg-danger text-white'; badge.innerText = 'OFFLINE'; }
+
+      document.getElementById('botName').innerText = `${status.username || 'ShekBot'}`;
+      document.getElementById('serverAddr').innerText = `${status.server.host}:${status.server.port}`;
+      document.getElementById('botMood').innerText = `${(status.mood || 'HAPPY').toUpperCase()} ${status.safeMode ? '(SafeMode)' : ''}`;
+      document.getElementById('currentTask').innerText = status.currentTask || 'idle';
+
+      if (!document.activeElement || !['cfgUsername', 'cfgOwner', 'cfgHost', 'cfgPort'].includes(document.activeElement.id)) {
+        document.getElementById('cfgUsername').value = status.username || 'ShekBot';
+        document.getElementById('cfgHost').value = status.server.host || '';
+        document.getElementById('cfgPort').value = status.server.port || 45259;
+      }
+    }
+
+    async function startBot() { await fetch('/api/start', { method: 'POST' }); }
+    async function stopBot() { await fetch('/api/stop', { method: 'POST' }); }
+
+    async function saveSettings(e) {
+      e.preventDefault();
+      const username = document.getElementById('cfgUsername').value.trim();
+      const owner = document.getElementById('cfgOwner').value.trim();
+      const host = document.getElementById('cfgHost').value.trim();
+      const port = Number(document.getElementById('cfgPort').value.trim());
+
+      appendLog(`Saving settings for ${username}...`, 'info');
+      await fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, owner, host, port })
+      });
+      fetchStatus();
+    }
+
+    async function sendChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      await fetch('/api/say', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }) });
+    }
+
+    async function sendShortcut(text) {
+      await fetch('/api/say', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: text }) });
+    }
+
+    async function fetchReport() {
+      const res = await fetch('/api/report');
+      const r = await res.json();
+      appendLog(`📊 [Daily Report ${r.date}] Crops: ${r.stats.cropsHarvested || 0}, Wood: ${r.stats.logsCollected || 0}, Mobs Killed: ${r.stats.mobsKilled || 0}, Deaths: ${r.stats.deaths || 0}, Asks: ${r.stats.asksMade || 0}`, 'info');
+    }
+
+    connectWS();
+    setInterval(fetchStatus, 5000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "mcbot",
+  "version": "1.0.0",
+  "description": "AI-powered Mineflayer Minecraft Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "minecraft-data": "^3.117.0",
+    "minecraft-protocol": "^1.68.0",
+    "mineflayer": "^4.39.0",
+    "mineflayer-pathfinder": "^2.4.5",
+    "ws": "^8.22.0"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "playerMemories": {
+    "shek": {
+      "username": "Shek",
+      "friendshipScore": 0,
+      "firstMet": "2026-10-06T18:20:40.898Z",
+      "lastSeen": "2026-10-06T18:20:40.898Z",
+      "giftsGiven": 0,
+      "lastRequests": [],
+      "facts": []
+    },
+    "sheikhcreper": {
+      "username": "SheikhCreper",
+      "friendshipScore": 22,
+      "firstMet": "2026-10-06T18:27:10.856Z",
+      "lastSeen": "2026-10-06T19:06:34.131Z",
+      "giftsGiven": 0,
+      "lastRequests": [
+        {
+          "text": "shek harvest wheats",
+          "time": "2026-10-06T19:06:34.131Z"
+        },
+        {
+          "text": "shek follow me",
+          "time": "2026-10-06T19:06:08.629Z"
+        },
+        {
+          "text": "shek get me 2 spruce wood",
+          "time": "2026-10-06T19:05:08.021Z"
+        },
+        {
+          "text": "shek",
+          "time": "2026-10-06T19:04:54.658Z"
+        },
+        {
+          "text": "shek come here",
+          "time": "2026-10-06T19:03:46.397Z"
+        }
+      ],
+      "facts": []
+    },
+    ".sheikhcreper": {
+      "username": ".SheikhCreper",
+      "friendshipScore": 122,
+      "firstMet": "2026-10-06T18:27:49.554Z",
+      "lastSeen": "2026-10-06T19:27:33.899Z",
+      "giftsGiven": 0,
+      "lastRequests": [
+        {
+          "text": "harvest these crops",
+          "time": "2026-10-06T19:27:33.899Z"
+        },
+        {
+          "text": "i want a rose flower",
+          "time": "2026-10-06T19:26:54.478Z"
+        },
+        {
+          "text": "shek collect me a rose flower",
+          "time": "2026-10-06T19:26:39.501Z"
+        },
+        {
+          "text": "has made the advancement [A Seedy Place]",
+          "time": "2026-10-06T19:25:44.243Z"
+        },
+        {
+          "text": "plant seeds.here",
+          "time": "2026-10-06T19:25:38.349Z"
+        }
+      ],
+      "facts": []
+    },
+    "lynnzero": {
+      "username": "LynnZero",
+      "friendshipScore": 2,
+      "firstMet": "2026-10-06T18:56:09.201Z",
+      "lastSeen": "2026-10-06T18:56:44.012Z",
+      "giftsGiven": 0,
+      "lastRequests": [
+        {
+          "text": "left the game",
+          "time": "2026-10-06T18:56:44.013Z"
+        },
+        {
+          "text": "joined the game",
+          "time": "2026-10-06T18:56:09.201Z"
+        }
+      ],
+      "facts": []
+    },
+    "laddu": {
+      "username": "laddu",
+      "friendshipScore": 2,
+      "firstMet": "2026-10-06T21:05:42.475Z",
+      "lastSeen": "2026-10-06T21:16:48.666Z",
+      "giftsGiven": 0,
+      "lastRequests": [
+        {
+          "text": "bot?",
+          "time": "2026-10-06T21:16:48.666Z"
+        },
+        {
+          "text": "bot?",
+          "time": "2026-10-06T21:05:42.475Z"
+        }
+      ],
+      "facts": []
+    }
+  },
+  "worldMemories": []
+}

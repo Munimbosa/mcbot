@@ -1,0 +1,72 @@
+[
+  {
+    "id": "wake_up",
+    "name": "Wake Up & Check Inventory",
+    "startTick": 0,
+    "endTick": 1000,
+    "description": "Wake up, eat food, check inventory, greet nearby players"
+  },
+  {
+    "id": "check_farm",
+    "name": "Harvest & Replant Farm",
+    "startTick": 1000,
+    "endTick": 3000,
+    "description": "Check farm within 100 blocks: harvest crops, replant seeds, collect drops"
+  },
+  {
+    "id": "hunt",
+    "name": "Hunt Animals / Guard Farm",
+    "startTick": 3000,
+    "endTick": 4500,
+    "description": "Hunt passive mobs for meat or defend farm"
+  },
+  {
+    "id": "collect_wood",
+    "name": "Collect Wood Logs",
+    "startTick": 4500,
+    "endTick": 6500,
+    "description": "Chop trees for up to 16 wood logs, replant saplings"
+  },
+  {
+    "id": "mine_nearby",
+    "name": "Mine Stone, Coal & Iron",
+    "startTick": 6500,
+    "endTick": 8000,
+    "description": "Mine stone, coal and iron above y=40, avoid lava"
+  },
+  {
+    "id": "craft_and_smelt",
+    "name": "Craft Tools & Smelt Ores",
+    "startTick": 8000,
+    "endTick": 9000,
+    "description": "Craft tools/torches/bread, smelt ores, repair gear"
+  },
+  {
+    "id": "store_items",
+    "name": "Deposit Excess Items",
+    "startTick": 9000,
+    "endTick": 10500,
+    "description": "Store excess items in chest, keep essential tools/food/seeds"
+  },
+  {
+    "id": "visit_players",
+    "name": "Visit Players & Ask for Seeds/Wood",
+    "startTick": 10500,
+    "endTick": 12000,
+    "description": "Visit nearby players, greet them, offer help or ask for seeds/wood if needed"
+  },
+  {
+    "id": "return_home",
+    "name": "Return Home & Light Base",
+    "startTick": 12000,
+    "endTick": 12500,
+    "description": "Head back home, place torches around base before nightfall"
+  },
+  {
+    "id": "sleep",
+    "name": "Sleep in Bed",
+    "startTick": 12500,
+    "endTick": 24000,
+    "description": "Find bed and sleep through the night. Stand safe if no bed available."
+  }
+]

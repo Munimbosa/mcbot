@@ -1,0 +1,94 @@
+{
+  "home": {
+    "x": 593,
+    "y": 68,
+    "z": 25
+  },
+  "bed": null,
+  "chest": null,
+  "farm": null,
+  "mood": "grumpy",
+  "currentTaskId": "mine_nearby",
+  "taskFailCounters": {
+    "sleep": 7
+  },
+  "quiet": false,
+  "dryRun": false,
+  "emergencyStop": false,
+  "lastDeath": {
+    "x": 595,
+    "y": 68,
+    "z": 26,
+    "timestamp": 1791326135169
+  },
+  "dangerZones": [
+    {
+      "x": 594,
+      "y": 68,
+      "z": 23,
+      "radius": 16,
+      "expireTime": 1791312672310
+    },
+    {
+      "x": 593,
+      "y": 68,
+      "z": 23,
+      "radius": 16,
+      "expireTime": 1791312709787
+    },
+    {
+      "x": 594,
+      "y": 68,
+      "z": 22,
+      "radius": 16,
+      "expireTime": 1791312928843
+    },
+    {
+      "x": 594,
+      "y": 68,
+      "z": 22,
+      "radius": 16,
+      "expireTime": 1791312988980
+    },
+    {
+      "x": 594,
+      "y": 68,
+      "z": 23,
+      "radius": 16,
+      "expireTime": 1791313024625
+    },
+    {
+      "x": 596,
+      "y": 67,
+      "z": 22,
+      "radius": 16,
+      "expireTime": 1791313040604
+    },
+    {
+      "x": 594,
+      "y": 68,
+      "z": 23,
+      "radius": 16,
+      "expireTime": 1791313963128
+    },
+    {
+      "x": 596,
+      "y": 68,
+      "z": 26,
+      "radius": 16,
+      "expireTime": 1791325994073
+    }
+  ],
+  "asksToday": 2,
+  "lastAskTimestamp": 1791312333989,
+  "dailyStats": {
+    "logsCollected": 0,
+    "cropsHarvested": 0,
+    "mobsKilled": 0,
+    "deaths": 17,
+    "giftsReceived": 0,
+    "asksMade": 2,
+    "playersMet": []
+  },
+  "followingTarget": ".SheikhCreper"
+}

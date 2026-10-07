@@ -1,0 +1,19 @@
+{
+  "join": ["hey! welcome to the server!", "yo! good to see you!"],
+  "leave": ["cya later!", "take care!"],
+  "greeting_friend": ["yo {name}! farm's looking good today!", "hey {name}! good to see you friend!"],
+  "greeting_stranger": ["hey there!", "hello! I'm ShekBot, the village farmer!"],
+  "harvest_done": ["farm's looking fresh and healthy!", "nice harvest done for today!"],
+  "wood_done": ["got a good stack of wood chopped!", "wood collection complete!"],
+  "mob_killed": ["took care of that mob!", "farm is safe for now!"],
+  "creeper": ["creeper!! nope nope nope!", "look out, creeper nearby!"],
+  "night": ["getting dark, time to head to bed!", "night time already, off to sleep!"],
+  "morning": ["good morning! new day, time to farm!", "sun's up! let's get to work!"],
+  "hurt": ["ouch! that hurt!", "oof! taking damage!"],
+  "death": ["ouch... that was rough.", "respawned! back to business."],
+  "gift": ["thanks a lot! you're awesome!", "thank you for the gift!"],
+  "ask_seeds": ["got any seeds to spare? my farm is running low.", "hey, if you have extra seeds, I could use some!"],
+  "ask_wood": ["need a bit of wood if you have spare logs!", "running low on wood logs!"],
+  "refuse_stranger": ["sorry, can't do that for strangers.", "can't do that unless we're friends."],
+  "safe_mode": ["my brain is lagging a bit, try again soon!", "gimme a sec, my brain is catchin up!"]
+}

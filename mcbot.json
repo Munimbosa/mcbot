@@ -1,0 +1,38 @@
+{
+  "enabled": true,
+  "username": "ShekBot",
+  "server": {
+    "host": "catsmpv5byshek.aternos.me",
+    "port": 45259,
+    "version": "1.21.11"
+  },
+  "messenger": {
+    "threadID": "27720992177492239",
+    "controllerID": "100042061672382"
+  },
+  "behavior": {
+    "randomMovement": true,
+    "lookAtPlayers": true,
+    "randomJump": true,
+    "randomSneak": true,
+    "autoSleep": true,
+    "autoReconnect": true,
+    "reconnectDelay": 15000
+  },
+  "ai": {
+    "enabled": true,
+    "url": "http://127.0.0.1:8080",
+    "model": "qwen.gguf",
+    "maxTokens": 80,
+    "playerCooldownMs": 3000,
+    "timeoutMs": 12000,
+    "personality": "Friendly, casual, helpful, slightly playful, Minecraft-aware, brief."
+  },
+  "stats": {
+    "joins": 139,
+    "messagesSent": 10,
+    "messagesReceived": 5,
+    "lastJoin": "2026-10-06T16:23:19.431Z",
+    "lastDisconnect": "2026-10-06T16:05:27.472Z"
+  }
+}

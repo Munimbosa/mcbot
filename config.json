@@ -1,0 +1,21 @@
+{
+  "botName": "ShekBot",
+  "owner": ".SheikhCreper",
+  "trusted": [],
+  "server": {
+    "host": "catsmpv5byshek.aternos.me",
+    "port": 45259,
+    "version": "1.20.4"
+  },
+  "qwenUrl": "http://127.0.0.1:8080",
+  "schedulePath": "./schedule.json",
+  "dryRun": false,
+  "statusPagePort": 3000,
+  "autoTalk": false,
+  "talkCooldownSec": 60,
+  "idleChatMinutes": [
+    10,
+    15
+  ],
+  "homeRadius": 64
+}
